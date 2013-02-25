@@ -1,6 +1,7 @@
 .titulo1{
     text-align: center;
     background-color: gray;
+    page-break-before: always;
 }
 ul{
     list-style: none;
