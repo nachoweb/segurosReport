@@ -1,0 +1,145 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <link rel="shortcut icon" href="img/miriam.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <!--<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1');
+    </script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript">google.setOnLoadCallback(init);</script>
+</head>
+<body>
+<div class="container-fluid" ng-controller="MainCtrl">
+
+    <h2 style="text-align: center;">{{datos[1]}}</h2>
+    <div class="row-fluid">
+            <h3>Datos Personales</h3>
+            <div class="row-fluid">
+                <div class="span5">
+                    <ul>
+                        <li>Edad Actual</li>
+                        <li>Año de Jubilación</li>
+                        <li>Régimen de la seguridad social</li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    <ul>
+                        <li>{{datos[3]}}</li>
+                        <li>{{datos[5]}}</li>
+                        <li>{{datos[7]}}</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Datos Económicos</h3>
+            <div class="row-fluid">
+                <div class="span5">
+                    <ul>
+                        <li>Ingresos Anuales</li>
+                        <li>Gastos Anuales</li>
+                        <li>Ahorro disponible</li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    <ul>
+                        <li>{{datos[9]}}</li>
+                        <li>{{datos[11]}}</li>
+                        <li>{{datos[13]}}</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Patrimonio</h3>
+            <div class="row-fluid">
+                <div class="span5">
+                    <ul>
+                        <li>Total valor Activos inmobiliarios</li>
+                        <li>Saldo acumulado para la jubilación</li>
+                        <li>Saldo acumulado en productos financieros (c/p)</li>
+                        <li>Saldo acumulado en productos financieros (m/p)</li>
+                        <li>Deuda pendiente</li>
+                    </ul>
+                </div>
+                <div class="span5">
+                    <ul>
+                        <li>{{datos[15]}}</li>
+                        <li>{{datos[17]}}</li>
+                        <li>{{datos[19]}}</li>
+                        <li>{{datos[21]}}</li>
+                        <li>{{datos[23]}}</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Perfíl riesgo</h3>
+            <div class="row-fluid">
+                <div class="span5">
+                    <ul>
+                        <li>{{datos[25]}}</li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+
+    <div class="row-fluid">
+        <h2 class="titulo1">SITUACIÓN ECONOMICA ACTUAL</h2>
+        <h3>Análisis de la capacidad de ahorro</h3>
+        <p>Las distribución entre los ingresos y los gastos anuales según los datos facilitados:</p>
+        <div class="row-fluid" style="margin:50px;">
+            <div class="span6 offset3"><div id="ingresosGastosChart"></div></div>
+        </div>
+        <h3>Su Patrimonio</h3>
+        <p>Distribución actual de su patrimonio</p>
+        <div class="row-fluid">
+            <div class="span6">
+                <div id="activosTotalesChart"></div>
+            </div>
+            <div class="span6">
+                <h4>Activos Financieros</h4>
+                <p>{{datos[27]}}% Cuentas corrientes</p>
+                <p>{{datos[29]}}% Fondos de inversión</p>
+                <p>{{datos[31]}}% Productos de ahorro</p>
+                <p>{{datos[33]}}% Planes de pensiones</p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6 offset3"><div id="patrimonialChart"></div></div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <h2 class="titulo1">NIVEL DE VIDA EN LA JUBILACIÓN</h2>
+        <p>{{datos[35]}}</p>
+        <div class="row-fluid" style="margin:50px;">
+            <div class="span6 offset3"><div id="pensionChart"></div></div>
+        </div>
+        <p>{{datos[37]}}</p>
+    </div>
+
+
+    <div class="row-fluid">
+        <h2 class="titulo1">ESTAR PROTEGIDO EN TODO MOMENTO</h2>
+        <h3 style="text-align: center;">¿Qué pasaría ante una invalidez permanente?</h3>
+        <p>En el caso que usted sufriera una incapacidad permanente absoluta la pensión que recibiría sería:</p>
+        <div class="row-fluid" style="margin:50px;">
+            <div class="span6 offset3"><div id="pensionInvalidezChart"></div></div>
+        </div>
+        <p>{{datos[39]}}</p>
+        <h3 style="text-align: center;">¿Qué pasaría si usted faltase?</h3>
+        <p>La pensión de viudedad que su esposa recibiría sería el 52% de su Pensión de Jubilación</p>
+        <div class="row-fluid" style="margin:50px;">
+            <div class="span6 offset3"><div id="pensionViudedadChart"></div></div>
+        </div>
+        <p>{{datos[41]}}</p>
+    </div>
+
+</div>
+
+
+</body>
+</html>
